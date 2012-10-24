@@ -1,5 +1,5 @@
 // Set your number here!
-var phone_number = '(425) 409-6544';
+var phone_number = 'Please change your number at the top of app.js';
 
 /**
  * Module dependencies.
