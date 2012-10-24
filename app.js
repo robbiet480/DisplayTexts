@@ -43,12 +43,13 @@ app.get('/', function(req,res){
 });
 
 app.post('/sms',function(req,res){
-  console.log(req.body.Body);
+  console.log('New SMS from '+req.body.From+' ('+req.body.FromCity+', '+req.body.FromState+') with the body: '+req.body.Body);
   io.sockets.emit('sms', req.body);
   res.end();
 });
 
 app.post('/call',function(req,res){
+  console.log('New phone call from: '+req.body.From+' ('+req.body.FromCity+', '+req.body.FromState+')');
   res.header("Content-Type", "text/xml");
   res.end('<?xml version="1.0" encoding="UTF-8"?>\n<Response>\n<Say>Sorry but I don\'t accept phone calls, goodbye</Say>\n</Response>');
 });
